@@ -1,0 +1,9 @@
+--https://datalemur.com/questions/sql-page-with-no-likes
+select DISTINCT page_id
+FROM
+pages
+WHERE
+page_id NOT IN 
+(SELECT DISTINCT page_id
+FROM
+page_likes);
