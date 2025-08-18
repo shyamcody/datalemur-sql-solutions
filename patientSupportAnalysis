@@ -1,0 +1,7 @@
+--https://datalemur.com/questions/frequent-callers
+SELECT COUNT(DISTINCT policy_holder_id) 
+FROM 
+(SELECT policy_holder_id, count(case_id) as case_count
+FROM callers
+GROUP BY policy_holder_id) case_count_table
+WHERE case_count>=3;
